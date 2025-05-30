@@ -1,0 +1,192 @@
+---
+sidebar_position: 1
+---
+
+# Box Model
+
+## What is the CSS Box Model?
+
+In CSS, every HTML element is a rectangular box, and the **Box Model** defines how the size of these boxes is calculated and how they interact with each other. The **Box Model** consists of four primary parts:
+
+### 1. Content Box
+
+The content box is the area where the actual content of the element is displayed. It is defined by the `width` and `height` properties.
+
+```css
+p {
+  width: 200px; /* Width of the content box */
+  height: 50px; /* Height of the content box */
+}
+```
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    height: "50px",
+    backgroundColor: "#f0f0f0",
+  }}
+>
+  Example
+</p>
+
+### 2. Padding
+
+Padding is the space between the content and the border. It clears an area around the content and is entirely transparent. Here are the properties you can use: `padding`, `padding-top`, `padding-right`, `padding-bottom`, and `padding-left`.
+
+```css
+p {
+  padding: 10px; /* Padding around the content */
+}
+```
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    height: "auto",
+    padding: "10px",
+    backgroundColor: "#c0dcb6",
+  }}
+>
+  <p
+    style={{
+      backgroundColor: "#ffffff",
+    }}
+  >
+    Padding Example
+  </p>
+</p>
+
+### 3. Border
+
+The border wraps around the padding and content. It can be styled with properties like `border-width`, `border-style`, and `border-color`.
+
+```css
+p {
+  border: 2px solid black; /* Border around the padding */
+}
+```
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    height: "auto",
+    padding: "10px",
+    border: "2px solid black",
+    backgroundColor: "#c0dcb6",
+  }}
+>
+  <p
+    style={{
+      backgroundColor: "#ffffff",
+    }}
+  >
+    Border Example
+  </p>
+</p>
+
+### 4. Margin
+
+Margin is the space outside the border. It creates space between the element and other elements around it. Margins can be set using `margin`, `margin-top`, `margin-right`, `margin-bottom`, and `margin-left`.
+
+```css
+p {
+  margin: 20px; /* Margin outside the border */
+}
+```
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    backgroundColor: "#f9cc9d",
+    display: "flow-root",
+  }}
+>
+  <p
+    style={{
+      margin: "20px",
+      backgroundColor: "#ffffff",
+    }}
+  >
+    Margin Example
+  </p>
+</p>
+
+## Box-Sizing
+
+The `box-sizing` property allows to alter the calculation of the width and height of an element. The two most common values are:
+
+- **`content-box`** (default): The width and height only include the content, not included padding and border.
+- **`border-box`**: The width and height include the content, padding, and border.
+
+## Calculating Total Width and Height
+
+The total width and height of an element can be calculated using the following formulas:
+
+### `box-sizing: content-box`
+
+- **Total Width** = `width` + `padding-left` + `padding-right` + `border-left` + `border-right`
+- **Total Height** = `height` + `padding-top` + `padding-bottom` + `border-top` + `border-bottom`
+
+#### Example Calculation
+
+```css
+p {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  box-sizing: content-box;
+}
+```
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    height: "200px",
+    padding: "10px",
+    border: "2px solid black",
+    boxSizing: "content-box",
+  }}
+>
+  <strong>Total Width</strong> = 200px + 10px + 10px + 2px + 2px = 224px
+  <br />
+  <strong>Total Height</strong> = 200px + 10px + 10px + 2px + 2px = 224px
+</p>
+
+### `box-sizing: border-box`
+
+- **Total Width** = `width` (content width = `width` - `padding` - `border`)
+- **Total Height** = `height` (content height = `height` - `padding` - `border`)
+
+#### Example Calculation
+
+```css
+p {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+```
+
+- **Content Width** = 200px - 10px - 10px - 2px - 2px = 176px
+- **Content Height** = 100px - 10px - 10px - 2px - 2px = 76px
+
+<p
+  className="box_model"
+  style={{
+    width: "200px",
+    height: "100px",
+    padding: "10px",
+    border: "2px solid black",
+    boxSizing: "border-box",
+  }}
+>
+  <strong>Total Width</strong> = 200px
+  <br />
+  <strong>Total Height</strong> = 100px
+</p>
