@@ -1,6 +1,9 @@
 ### Custom
 .idea
 .vscode
+# firebase
+.firebase
+.firebaserc
 
 # Dependencies
 /node_modules
