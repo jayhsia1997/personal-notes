@@ -1,0 +1,12 @@
+label: Frontend
+position: 1
+link:
+  type: generated-index
+  slug: /frontend
+  description: "Frontend development resources including CSS, HTML, and JavaScript topics."
+  keywords:
+    - frontend
+    - CSS
+    - HTML
+    - JavaScript
+    - web development

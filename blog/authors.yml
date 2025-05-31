@@ -1,8 +1,10 @@
 jayhsia:
   name: Jay Hsia
   title: Software Engineer
-  url: https://jayhsia.com
+  description: |
+    Jay is a Software engineer with over 4 years of specialization in back-end development and proficiency in basic front-end tasks. Recent experience includes role as software application engineer at Trend Micro, focusing on the design and development of back-end architecture. Currently pursuing studies in computer programming in Canada.
   image_url: https://github.com/jayhsia1997.png
+  url: https://jayhsia.com
   page: true
   socials:
     # x: jayhisa

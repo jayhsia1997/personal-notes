@@ -6,7 +6,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "Jay's Notes",
-  tagline: "A collection of notes and resources",
+  tagline: "Backend Engineer's Learning Notes",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -38,28 +38,35 @@ const config: Config = {
 
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       {
         docs: {
+          routeBasePath: "notes",
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl: "",
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ["rss", "atom"],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl: "",
-          // Useful options to enforce blogging best practices
-          onInlineTags: "warn",
-          onInlineAuthors: "warn",
-          onUntruncatedBlogPosts: "warn",
-        },
+        // blog: {
+        //   // blogTitle: "Jay's Blog",
+        //   // blogDescription: "A collection of my thoughts and experiences",
+        //   // blogSidebarTitle: "All Posts",
+        //   // blogSidebarCount: "ALL",
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ["rss", "atom"],
+        //     xslt: true,
+        //   },
+        //   // Please change this to your repo.
+        //   // Remove this to remove the "edit this page" links.
+        //   // editUrl: "",
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: "warn",
+        //   onInlineAuthors: "warn",
+        //   onUntruncatedBlogPosts: "warn",
+        // },
         theme: {
           customCss: ["./src/css/custom.css", "./src/css/note.css"],
         },
@@ -79,11 +86,15 @@ const config: Config = {
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "notesSidebar",
           position: "left",
           label: "Notes",
         },
-        // { to: "/blog", label: "Blog", position: "left" },
+        // {
+        //   to: "/blog",
+        //   label: "Blog",
+        //   position: "left",
+        // },
         // {
         //   href: 'https://github.com/facebook/docusaurus',
         //   label: 'GitHub',
@@ -98,11 +109,11 @@ const config: Config = {
     footer: {
       links: [
         {
-          title: "Docs",
+          title: "Site Links",
           items: [
             {
               label: "Notes",
-              to: "/docs/notes",
+              to: "/notes",
             },
           ],
         },
@@ -112,7 +123,7 @@ const config: Config = {
             {
               label: "Jay's Website",
               href: "https://jayhsia.com",
-            }
+            },
           ],
         },
         {
@@ -131,7 +142,7 @@ const config: Config = {
               href: "https://www.linkedin.com/in/jay-hsia-profile/",
             },
           ],
-        }
+        },
         // {
         //   title: "More",
         //   items: [

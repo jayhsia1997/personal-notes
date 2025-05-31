@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "jay-notes",
     "public": "build",
     "ignore": [
       "firebase.json",
