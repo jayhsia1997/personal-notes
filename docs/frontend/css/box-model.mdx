@@ -1,12 +1,11 @@
 ---
 sidebar_position: 0
 tags: ["css", "web_development", "frontend"]
-keywords:
-  ["CSS", "CSS Box Model", "CSS Layout", "Web Design", "Web Development", "Frontend", "front-end"]
+keywords: ["CSS", "CSS Box Model", "CSS Layout", "Web Design", "Web Development", "Frontend", "front-end"]
 description: Understanding the CSS Box Model, its components, and how to calculate total width and height of elements.
 slug: box-model
 last_update:
-  date: 2025-05-30
+  date: 2025-06-06
   author: "Jay Hsia"
 ---
 
@@ -198,3 +197,97 @@ p {
   <br />
   <strong>Total Height</strong> = 100px
 </p>
+
+## Margin Collapsing
+
+### What is Margin Collapsing?
+
+When two **vertical** margins (top/bottom) touch, the browser merges them into a single margin that is equal to the larger of the two, they do **not** add.
+:::tip
+The **horizontal** margins (left/right) do not collapse.
+:::
+
+### Not Happen Collapsing
+
+- **Padding or border** between parent and child elements: Any **non-zero** padding/border forms a **"Wall"**.
+- **Flex or Grid** items: These layout modes create new formatting contexts.
+- **Absolutely positioned** elements **never** collapse their margins.
+
+### Example
+
+:::note
+All examples can utilize **DevTools** to inspect the box model and observe margin collapse.
+:::
+
+#### Sibling Elements
+
+```css
+.collapse_box {
+  height: 50px;
+  width: 200px;
+}
+
+.pink_box {
+  background-color: #f78cac;
+  margin-bottom: 50px;
+}
+
+.blue_box {
+  background-color: #7db7ff;
+  margin-top: 30px;
+}
+```
+
+```html
+<div class="collapse_box pink_box"></div>
+<div class="collapse_box blue_box"></div>
+```
+
+<div class="collapse_box pink_box">margin-bottom: 50px</div>
+<div class="collapse_box blue_box">margin-top: 30px</div>
+
+#### Parent and Child Elements
+
+```css
+.collapse_parent_box {
+  background: #ffeab0;
+  margin-top: 40px;
+}
+
+.collapse_child_box {
+  height: 50px;
+  background: #ffa96b;
+  margin-top: 30px;
+}
+```
+
+```html
+<div class="collapse_parent_box">
+  <div class="collapse_child_box"></div>
+</div>
+```
+
+**Collapse:**
+
+<div class="collapse_parent_box">
+  <div class="collapse_child_box"
+    style={{
+      paddingTop: "1px",
+    }}>margin-top: 30px</div>
+</div>
+
+**Prevent Collapse:**
+
+```css
+.collapse_parent_box {
+  background: #ffeab0;
+  margin-top: 40px;
+  padding-top: 1px; /* Add padding to avoid collapse */
+  /* or */
+  /* border-top: 1px solid black; */
+}
+```
+
+<div class="collapse_parent_box" style={{ paddingTop: "1px" }}>
+  <div class="collapse_child_box">Parent Box with Padding</div>
+</div>
