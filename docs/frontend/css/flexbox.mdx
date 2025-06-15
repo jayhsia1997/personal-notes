@@ -1,7 +1,6 @@
 ---
 sidebar_position: 1
-keywords:
-  ["CSS", "CSS Flexbox", "CSS Layout", "Web Design", "Web Development", "Frontend", "front-end"]
+keywords: ["CSS", "CSS Flexbox", "CSS Layout", "Web Design", "Web Development", "Frontend", "front-end"]
 description: "Understanding CSS Flexbox, its properties, and how to create flexible layouts."
 slug: flexbox
 tags: ["css", "web_development", "frontend"]
@@ -12,3 +11,213 @@ last_update:
 ---
 
 # Flexbox
+
+## What is CSS Flexbox?
+
+Flexbox is a one-dimensional layout system, meaning it deals with either rows or columns. It allows items within a container to grow, shrink, and align to fill available space. This flexibility makes it ideal for creating responsive layouts.
+
+## Concepts and Properties
+
+### 1. Flex Container and Flex Items
+
+- Flex Container: The parent element that holds flex items. Element with `display: flex;` or `display: inline-flex;`.
+- Flex Items: The direct children of the flex container that will be laid out according to flexbox rules.
+
+### 2. Main Axis and Cross Axis
+
+> Reference: [Basics and terminology](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-basics-and-terminology)
+
+- Main Axis: The primary axis along which flex items are laid out (horizontal by default). It can be changed with `flex-direction`.
+- Cross Axis: The axis perpendicular to the main axis (vertical by default).
+
+### 3. Flex Container Properties
+
+:::note
+The following properties are applied to the flex container:
+
+- `display: flex;` or `display: inline-flex;`
+  :::
+
+#### `flex-direction`
+
+> Sets the direction of the main axis.
+
+- `row` (default): Items are arranged horizontally from left to right.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+```
+
+- `row-reverse`: Items are arranged horizontally from right to left.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+```
+
+- `column`: Items are arranged vertically from top to bottom.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+- `column-reverse`: Items are arranged vertically from bottom to top.
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+```
+
+#### `flex-wrap`
+
+> Controls whether flex items should wrap onto multiple lines.
+
+- `nowrap` (default): All items on one line.
+
+```css
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+```
+
+- `wrap`: Items wrap onto multiple lines.
+
+```css
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+```
+
+- `wrap-reverse`: Items wrap onto multiple lines in reverse order.
+
+```css
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+```
+
+#### `justify-content`
+
+> Aligns flex items along the main axis.
+
+- `flex-start` (default): Items aligned to the start.
+- `flex-end`: Items aligned to the end.
+- `center`: Items centered.
+- `space-between`: Equal space between items.
+- `space-around`: Equal space around items.
+- `space-evenly`: Equal space between and around items.
+
+#### `align-items`
+
+> Aligns items along the cross axis.
+
+- `stretch` (default): Items stretch to fill the container.
+- `flex-start`: Items aligned to the start.
+- `flex-end`: Items aligned to the end.
+- `center`: Items centered.
+- `baseline`: Items aligned along their baselines.([DEV Community][8], [MDN Web Docs][9], [CSS-Tricks][2])
+
+#### `align-content`
+
+> Aligns multiple lines of items along the cross axis.
+
+- Similar values to [`align-items`](#align-items).
+
+### 4. Flex Item Properties
+
+#### `flex`
+
+> Shorthand for `flex-grow`, `flex-shrink`, and `flex-basis`.
+
+- Example: `flex: 1 0 auto;` means the item will grow to fill available space, not shrink, and has a base size of `auto`.
+
+#### `order`
+
+> Controls the order of flex items.
+
+- Default is `0`; lower values appear first.
+
+#### `flex-grow`
+
+> Defines how much a flex item will grow relative to others.
+
+- Default is `0`, meaning items will not grow unless specified.
+
+#### `flex-shrink`
+
+> Defines how much a flex item will shrink relative to others.
+
+- Default is `1`, meaning items will shrink to fit the container.
+
+#### `flex-basis`
+
+> Defines the default size of an element before remaining space is distributed.
+
+- Can be set in units (e.g., `px`, `%`) or `auto`.
+
+#### `align-self`
+
+> Overrides `align-items` for individual items.
+
+## Practical Example
+
+> Here's a simple example of a flexbox layout:
+
+```css
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  border: 1px solid #ccc;
+}
+
+.flex-item {
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  text-align: center;
+  line-height: 50px;
+}
+```
+
+```html
+<div class="flex-container">
+  <div class="flex-item">Item 1</div>
+  <div class="flex-item">Item 2</div>
+  <div class="flex-item">Item 3</div>
+</div>
+```
+
+<div class="note-flex-container">
+  <div class="note-flex-item">Item 1</div>
+  <div class="note-flex-item">Item 2</div>
+  <div class="note-flex-item">Item 3</div>
+</div>
+
+In this example:
+
+- `flex-direction: row;` layout items horizontally.
+- `justify-content: space-around;` distributes space around the items.
+- `align-items: center;` vertically centers the items within the container.
+
+---
+
+## 📚 Study Resources
+
+- [MDN Web Docs: CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout)
+- [CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
