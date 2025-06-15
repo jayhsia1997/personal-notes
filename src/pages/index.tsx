@@ -28,11 +28,6 @@ function HomepageHeader() {
             Explore My Website
           </a>
         </div>
-        <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/notes">
-            View My Notes
-          </Link>
-        </div>
       </div>
     </header>
   );
